@@ -39,6 +39,19 @@ def exchange():
             mb.showerror("Ошибка", f"Ошибка: {e}")
     else:
         mb.showwarning("Внимание", "Выберите код валюты")
+# Словарь кодов валют и их полных названий
+currencies = {
+    "btc": "Биткоин",
+    "eth": "Эфириум",
+    "usdt": "Тезер",
+    "bnb": "Бинанс коин",
+    "xrp": "XRP",
+    "usdc": "USD Coin",
+    "sol": "Солана",
+    "trx": "ТРОН",
+    "figr_heloc": "Фигюр Хелок",
+    "steth": "Lido Staked Ether"
+}
 
 # Создание графического интерфейса
 window = Tk()
