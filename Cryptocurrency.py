@@ -8,11 +8,37 @@
 # print(data)
 # iiii = data['bitcoin']['usd']
 # print(iiii)
+
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as mb
 import requests
 
+def update_currency_label(event):
+    # Получаем полное название валюты из словаря и обновляем метку
+    code = combobox.get()
+    name = currencies[code]
+    currency_label.config(text=name)
+
+def exchange():
+    code = combobox.get()
+
+    if code:
+        try:
+            response = requests.get(f'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&symbols={code}')
+            response.raise_for_status()
+            data = response.json()
+
+            if code in data:
+                exchange_rate = data[code]['usd']
+                currency_name = currencies.get(code, code)
+                mb.showinfo("Курс обмена", f"Курс {exchange_rate:.2f} $ (Доллар США) за 1{code} ({currency_name})")
+            else:
+                mb.showerror("Ошибка", f"Валюта {code} не найдена")
+        except Exception as e:
+            mb.showerror("Ошибка", f"Ошибка: {e}")
+    else:
+        mb.showwarning("Внимание", "Выберите код валюты")
 
 # Создание графического интерфейса
 window = Tk()
