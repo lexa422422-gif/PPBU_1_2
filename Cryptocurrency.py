@@ -4,7 +4,7 @@ from tkinter import messagebox as mb
 import requests
 
 def update_currency_label(event):
-    # Получаем полное название валюты из словаря и обновляем метку
+    # Получаем полное название криптовалют из словаря и обновляем метку
     code = combobox.get()
     name = currencies[code]
     currency_label.config(text=name)
@@ -23,12 +23,12 @@ def exchange():
                 currency_name = currencies.get(code, code)
                 mb.showinfo("Курс обмена", f"Курс {exchange_rate:.2f} $ (Доллар США) за 1{code} ({currency_name})")
             else:
-                mb.showerror("Ошибка", f"Валюта {code} не найдена")
+                mb.showerror("Ошибка", f"Криптовалюты {code} не найдена")
         except Exception as e:
             mb.showerror("Ошибка", f"Ошибка: {e}")
     else:
-        mb.showwarning("Внимание", "Выберите код валюты")
-# Словарь кодов валют и их полных названий
+        mb.showwarning("Внимание", "Выберите код Криптовалюты")
+# Словарь кодов криптовалют и их полных названий
 currencies = {
     "btc": "Биткоин",
     "eth": "Эфириум",
@@ -44,7 +44,7 @@ currencies = {
 
 # Создание графического интерфейса
 window = Tk()
-window.title("Курс обмена валюты к доллару")
+window.title("Курс обмена криптовалюты к доллару")
 window.geometry("360x180")
 
 Label(text="Выберите код валюты:").pack(padx=10, pady=10)
