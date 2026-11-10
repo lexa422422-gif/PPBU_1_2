@@ -45,7 +45,7 @@ currencies = {
 # Создание графического интерфейса
 window = Tk()
 window.title("Курс обмена криптовалюты к доллару")
-window.geometry("360x180")
+window.geometry("400x180")
 
 Label(text="Выберите код криптовалюты:").pack(padx=10, pady=10)
 
