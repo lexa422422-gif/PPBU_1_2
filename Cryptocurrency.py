@@ -47,7 +47,7 @@ window = Tk()
 window.title("Курс обмена криптовалюты к доллару")
 window.geometry("360x180")
 
-Label(text="Выберите код валюты:").pack(padx=10, pady=10)
+Label(text="Выберите код криптовалюты:").pack(padx=10, pady=10)
 
 combobox = ttk.Combobox(values=list(currencies.keys()))
 combobox.pack(padx=10, pady=10)
