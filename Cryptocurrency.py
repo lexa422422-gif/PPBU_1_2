@@ -14,7 +14,7 @@ def exchange():
 
     if code:
         try:
-            response = requests.get(f'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&symbols={code}')
+            response = requests.get(f'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids={code}')
             response.raise_for_status()
             data = response.json()
 
@@ -30,16 +30,16 @@ def exchange():
         mb.showwarning("Внимание", "Выберите код Криптовалюты")
 # Словарь кодов криптовалют и их полных названий
 currencies = {
-    "btc": "Биткоин",
-    "eth": "Эфириум",
-    "usdt": "Тезер",
-    "bnb": "Бинанс коин",
-    "xrp": "XRP",
-    "usdc": "USD Coin",
-    "sol": "Солана",
-    "trx": "ТРОН",
-    "figr_heloc": "Фигюр Хелок",
-    "steth": "Lido Staked Ether"
+    "bitcoin": "Биткоин",
+    "ethereum": "Эфириум",
+    "tether": "Тезер",
+    "binancecoin": "Бинанс коин",
+    "ripple": "XRP",
+    "usd-coin": "USD Coin",
+    "solana": "Солана",
+    "tron": "ТРОН",
+    "figure-heloc": "Фигюр Хелок",
+    "staked-ether": "Lido Staked Ether"
 }
 
 # Создание графического интерфейса
